@@ -1,12 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from "react";
+import {Map, GoogleApiWrapper} from '@googlemaps/react-wrapper';
 
-function App() {
-  return (
-    <div>
-      <h1>My React App</h1>
-    </div>
-  );
+class MapContainer extends Component {
+  render() {
+    return (
+      <Map
+        google={this.props.google}
+        zoom={14}
+        initialCenter={{ lat: 47.444, lng: -122.176}}
+      />
+    );
+  }
 }
 
-export default App;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAyoJ9O-UFtRi6MfQ5rhAbvz-dvMtVAiuI'
+})(MapContainer);
+
